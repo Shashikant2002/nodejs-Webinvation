@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #383636;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.textAlign {
+  text-align: center;
+}
+
+.justSpaceBetween {
+  justify-content: space-between;
+}
+
+.justContentCenter {
+  justify-content: center;
+}
+
+.alinItemCenter {
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.header {
+  background: #000;
+}
+
+.header .logo {
+  width: 250px;
+}
+
+.header .logo img {
+  width: 100%;
+}
+
+.header .getInTouch a {
+  color: #fff;
+  background: #ffbf00;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 8px 20px;
+}
+
+.description {
+  padding: 50px 0 0 0;
+}
+
+.description p {
+  margin-top: 10px;
+  color: #424242;
+}
+
+.businessCatecory {
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.businessCatecory input::placeholder {
+  color: #d0d0d0;
+  font-style: italic;
+}
+
+.businessCatecory input {
+  border: 1px solid #d0d0d0;
+  border-right: none;
+  padding: 10px 18px;
+  color: #3c3c3c;
+  font-size: 1rem;
+  outline: none;
+  width: 325px;
+  display: inline-block;
+}
+
+.businessCatecory button {
+  color: #fff;
+  background: #ffbf00;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.projects {
+  width: 100%;
+  float: left;
+  padding: 80px 0;
+}
+
+.projects .project img {
+  width: 100%;
+}
+
+.projects .project {
+  width: 300px;
+  margin: 0 25px;
+  margin-bottom: 50px;
+}
+
+.projects .project h2 a {
+  color: #fff;
+}
+
+.projects .project h2 {
+  text-align: center;
+  background: #ffbf00;
+  color: #fff;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.dashboard {
+  width: 100%;
+  float: left;
+  padding: 50px 0;
+}
+
+.dashboard .container .card {
+  /* border: 1px solid red; */
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.dashboard .container input {
+  border: 1px solid #d0d0d0;
+  padding: 10px 18px;
+  color: #3c3c3c;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.dashboard .container button {
+  color: #fff;
+  background: #ffbf00;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  font-style: italic;
+  display: inline-block;
+  margin-top: 20px;
+}
