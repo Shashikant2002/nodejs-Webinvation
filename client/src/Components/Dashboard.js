@@ -31,10 +31,12 @@ const Dashboard = () => {
     };
 
     const response = await axios.post("/createTheame", formData, config);
-    console.log(response);
-    
-    console.log("Data Submiting");
-    console.log("Data Submited");
+
+    if (response.data.status === 401 || !response.data) {
+      console.log("Error");
+    } else {
+      console.log("Done");
+    }
   };
   return (
     <>
