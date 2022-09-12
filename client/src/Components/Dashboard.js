@@ -97,9 +97,9 @@ const Dashboard = () => {
                 className="category-new-start"
                 value={credic.category.value}
               >
-                <option>All</option>
-                <option>Shashikant</option>
-                <option>Webinvation</option>
+                <option value="">Select your option</option>
+                <option>Ecommerce</option>
+                <option>Education</option>
                 {uniqueList.map((cur, index) => {
                   return <option key={index}>{cur}</option>;
                 })}

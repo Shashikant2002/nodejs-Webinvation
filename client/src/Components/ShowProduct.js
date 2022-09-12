@@ -1,6 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+const axios = require("axios");
 
 const ShowProduct = () => {
+  const [data, setData] = useState([]);
+
+  const allTheam = async () => {
+    const response = await axios.get("/findAllTheam", {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (response.data.status === 401 || !response.data) {
+      console.log("Error");
+    } else {
+      setData(response.data.theam);
+    }
+  };
+
+  useEffect(() => {
+    allTheam();
+  }, []);
+
   return (
     <>
       {/* All Data Here  */}
@@ -30,6 +52,34 @@ const ShowProduct = () => {
               <h3>Delete</h3>
             </div>
           </div>
+
+          {data.map((cur, index) => {
+            return (
+              <div key={index} className="Parts heading">
+                <div className="attribute">
+                  <p>{index}</p>
+                </div>
+                <div className="attribute">
+                  <p>{cur.title}</p>
+                </div>
+                <div className="attribute">
+                  <a href={cur.liveSite}>{cur.liveSite}</a>
+                </div>
+                <div className="attribute">
+                <img src={`/uploads/${cur.image}`} alt="demo" />
+                </div>
+                <div className="attribute">
+                  <p>{cur.category}</p>
+                </div>
+                <div className="attribute">
+                  <button className="glButton">Update</button>
+                </div>
+                <div className="attribute">
+                  <button className="glButton red">Delete</button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
