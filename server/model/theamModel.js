@@ -13,9 +13,13 @@ const theameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
-    defaule: Date.now(),
+    default: Date.now,
   },
 });
 

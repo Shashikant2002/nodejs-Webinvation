@@ -21,10 +21,10 @@ const Header = () => {
           Thereby, we’ve got you here!
         </p>
       </div>
-      <div className="businessCatecory textAlign">
+      {/* <div className="businessCatecory textAlign">
         <input type="text" placeholder="business category" />
         <button>Search</button>
-      </div>
+      </div> */}
     </>
   );
 };

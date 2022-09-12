@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import ShowProduct from "./ShowProduct";
 const axios = require("axios");
 
 const Dashboard = () => {
   const [credic, setCredic] = useState({
     title: "",
     liveSite: "",
+    category: "All",
   });
   const [file, setFile] = useState("");
+  const [data, setData] = useState([]);
 
   const onchangeInData = (e) => {
     setCredic({ ...credic, [e.target.name]: e.target.value });
@@ -17,12 +21,13 @@ const Dashboard = () => {
 
   const addTheame = async (e) => {
     e.preventDefault();
-    const { title, liveSite } = credic;
+    const { title, liveSite, category } = credic;
 
     var formData = new FormData();
     formData.append("image", file);
     formData.append("title", title);
     formData.append("liveSite", liveSite);
+    formData.append("category", category);
 
     const config = {
       headers: {
@@ -38,6 +43,31 @@ const Dashboard = () => {
       console.log("Done");
     }
   };
+
+  const allTheam = async () => {
+    const response = await axios.get("/findAllTheam", {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (response.data.status === 401 || !response.data) {
+      console.log("Error");
+    } else {
+      setData(response.data.theam);
+    }
+  };
+  useEffect(() => {
+    allTheam();
+  }, []);
+
+  const uniqueList = [
+    ...new Set(
+      data.map((curEle) => {
+        return curEle.category;
+      })
+    ),
+  ];
+
   return (
     <>
       <div className="dashboard">
@@ -60,17 +90,35 @@ const Dashboard = () => {
                 placeholder="Path of Live Site"
                 required
               />
+              <select
+                id="category"
+                onChange={onchangeInData}
+                name="category"
+                className="category-new-start"
+                value={credic.category.value}
+              >
+                <option>All</option>
+                <option>Shashikant</option>
+                <option>Webinvation</option>
+                {uniqueList.map((cur, index) => {
+                  return <option key={index}>{cur}</option>;
+                })}
+              </select>
+
               <input
                 required
                 type="file"
                 onChange={onchangeInImage}
                 name="image"
+                placeholder="Choose Theame"
               />
-              <button type="submit">Add Theaam</button>
+              <button type="submit">Add Theam</button>
             </form>
           </div>
         </div>
       </div>
+
+      <ShowProduct />
     </>
   );
 };

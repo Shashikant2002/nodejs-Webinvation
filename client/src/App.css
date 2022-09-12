@@ -19,6 +19,19 @@ p {
   font-size: 1.2rem;
 }
 
+.glButton{
+  color: #fff;
+  background: #ffbf00;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  font-style: italic;
+}
+
 .flex {
   display: flex;
 }
@@ -202,4 +215,58 @@ a {
   border-radius: 100%;
   padding: 5px 8px;
   cursor: pointer;
+}
+
+.category-new-start p{
+  display: inline-block;
+  border: 1px solid #d0d0d0;
+  margin: 0 5px;
+  padding: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.category-new-start{
+  border: 1px solid #d0d0d0;
+  padding: 10px 10px;
+  margin-top: 20px;
+  color: #383636;
+  text-align: left;
+  width: 100%;
+  outline: none;
+}
+
+.showData{
+  width: 100%;
+  float: left;
+  padding: 50px 0;
+}
+.showData .heading{
+  display: flex;
+}
+.showData .heading .attribute:last-child{
+  border-right: 1px solid gray;
+
+}
+.showData .heading .attribute{
+  width: 33%;
+  border: 1px solid gray;
+  text-align: center;
+  border-right: none;
+  padding: 5px 0;
+}
+
+.Category{
+  width: 100%;
+  float: left;
+  padding: 30px 0 0 0;
+}
+.Category .container {
+  display: flex;
+  justify-content: center;
+}
+.Category .container a {
+  margin: 0 5px;
+  font-size: 15px;
 }

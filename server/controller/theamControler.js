@@ -25,9 +25,9 @@ exports.upload = multer({
 
 exports.createTheame = async (req, res) => {
   const { filename } = req.file;
-  const { title, liveSite } = req.body;
+  const { title, liveSite, category } = req.body;
 
-  if (!filename || !title || !liveSite) {
+  if (!filename || !title || !liveSite || !category) {
     res.status(401).send({ status: 401, message: "Fill All The Data" });
   }
 
@@ -36,14 +36,17 @@ exports.createTheame = async (req, res) => {
       title: title,
       liveSite: liveSite,
       image: filename,
+      category: category,
     });
 
     const finalData = await theameData.save();
+
     res.status(201).json({
       status: 201,
       message: "Theame Created",
       finalData,
     });
+    
   } catch (err) {
     res
       .status(401)
