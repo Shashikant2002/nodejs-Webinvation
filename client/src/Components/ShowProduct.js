@@ -23,6 +23,21 @@ const ShowProduct = () => {
     allTheam();
   }, []);
 
+  const deleteProduct = async (id) => {
+    console.log(id);
+    const response = await axios.get(`/deleteTheam/${id}`, {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+
+    if (response.data.status === 401 || !response.data) {
+      console.log("Error");
+    } else {
+      alert("Theam Deleted");
+    }
+  };
+
   return (
     <>
       {/* All Data Here  */}
@@ -46,9 +61,6 @@ const ShowProduct = () => {
               <h3>Category</h3>
             </div>
             <div className="attribute">
-              <h3>Update</h3>
-            </div>
-            <div className="attribute">
               <h3>Delete</h3>
             </div>
           </div>
@@ -66,16 +78,18 @@ const ShowProduct = () => {
                   <a href={cur.liveSite}>{cur.liveSite}</a>
                 </div>
                 <div className="attribute">
-                <img src={`/uploads/${cur.image}`} alt="demo" />
+                    <img src={`/uploads/${cur.image}`} alt="demo" />
                 </div>
                 <div className="attribute">
                   <p>{cur.category}</p>
                 </div>
                 <div className="attribute">
-                  <button className="glButton">Update</button>
-                </div>
-                <div className="attribute">
-                  <button className="glButton red">Delete</button>
+                  <button
+                    onClick={() => deleteProduct(cur._id)}
+                    className="glButton red"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             );

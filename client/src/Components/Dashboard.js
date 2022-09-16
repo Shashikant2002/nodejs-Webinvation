@@ -40,7 +40,7 @@ const Dashboard = () => {
     if (response.data.status === 401 || !response.data) {
       console.log("Error");
     } else {
-      console.log("Done");
+      alert("Uploaded");
     }
   };
 
@@ -111,6 +111,7 @@ const Dashboard = () => {
                 onChange={onchangeInImage}
                 name="image"
                 placeholder="Choose Theame"
+                accept="image/*"
               />
               <button type="submit">Add Theam</button>
             </form>
